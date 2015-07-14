@@ -268,7 +268,11 @@ class JBrowser
 				$this->setBrowser('palm');
 				$this->mobile = true;
 			}
-			elseif ((preg_match('|MSIE ([0-9.]+)|', $this->agent, $version)) || (preg_match('|Internet Explorer/([0-9.]+)|', $this->agent, $version)))
+			elseif (
+				(preg_match('|MSIE ([0-9.]+)|', $this->agent, $version)) ||
+				(preg_match('|Internet Explorer/([0-9.]+)|', $this->agent, $version)) ||
+				(preg_match('|Trident.+rv:([0-9.]+)|', $this->agent, $version))
+			)
 			{
 				$this->setBrowser('msie');
 
